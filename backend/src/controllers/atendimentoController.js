@@ -1,0 +1,19 @@
+/**
+ * Camada de Apresentacao (MVC: Controller) -- Modulo de Atendimento.
+ */
+const atendimentoService = require('../services/atendimentoService');
+
+async function registrarEntrada(req, res) {
+  const atendimento = await atendimentoService.registrarEntrada(
+    req.body,
+    req.usuario.id
+  );
+
+  return res.status(201).json({
+    sucesso: true,
+    mensagem: 'Entrada registrada. Veiculo adicionado a fila.',
+    dados: atendimento,
+  });
+}
+
+module.exports = { registrarEntrada };

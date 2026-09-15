@@ -1,0 +1,14 @@
+# Dependencias
+node_modules/
+
+# Variaveis de ambiente (use os .env.example como modelo)
+.env
+
+# Banco local de desenvolvimento
+*.sqlite
+
+# Build do front-end
+dist/
+
+# Logs
+*.log
