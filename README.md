@@ -59,7 +59,7 @@ Aplicação gerencial de uso interno do lava rápido, organizada em quatro módu
 
 ### 2.2. Requisitos Não Funcionais
 
-Os três primeiros foram priorizados na Matriz de Atributos de Qualidade da atividade da Aula 02; Segurança e Usabilidade completam o conjunto por serem determinantes para a viabilidade legal e operacional do produto.
+Os três primeiros foram priorizados pela equipe na Matriz de Atributos de Qualidade e Trade-offs; Segurança e Usabilidade completam o conjunto por serem determinantes para a viabilidade legal e operacional do produto.
 
 | ID | Atributo de Qualidade | Métrica / Cenário de Sucesso Mensurável | Trade-off Aceito |
 |---|---|---|---|
@@ -163,7 +163,7 @@ O WashFlow adota **dois padrões complementares**: **Monolítico em Camadas (Lay
 
 ### 5.1. Padrão principal — Monolítico em Camadas (Layered)
 
-Todo o sistema — interface de entrada, regras de negócio e acesso ao banco — é compilado, empacotado e executado como uma **única unidade implantável** (o container `Aplicação WashFlow`). Dentro desse bloco único, os arquivos são organizados em **níveis horizontais de responsabilidade**, e cada camada só conversa com a camada imediatamente abaixo:
+Todo o sistema — interface de entrada, regras de negócio e acesso ao banco — é empacotado e executado como uma **única unidade implantável** (o container `Aplicação WashFlow`), em um único processo. Dentro desse bloco único, os arquivos são organizados em **níveis horizontais de responsabilidade**, e cada camada só conversa com a camada imediatamente abaixo:
 
 ```
 Rotas  →  Controllers  →  Services  →  Repositories  →  Models  →  Banco de Dados
