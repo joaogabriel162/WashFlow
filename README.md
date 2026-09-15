@@ -99,7 +99,7 @@ Abrindo a caixa do WashFlow: as partes tecnológicas que compõem o sistema e co
 
 | Container | Tecnologia | Responsabilidade |
 |---|---|---|
-| **Interface Web** | React | Telas de cadastro, painel da fila e atualização de status usadas no balcão |
+| **Interface Web** | Vue.js | Telas de cadastro, painel da fila e atualização de status usadas no balcão |
 | **Aplicação WashFlow** | Node.js / Express | Monolito com os módulos de autenticação, usuários, clientes, veículos, fila, atendimento, notificações e relatórios |
 | **Banco de Dados** | PostgreSQL | Armazena usuários, clientes, veículos, serviços, atendimentos, fila e notificações |
 
@@ -190,7 +190,7 @@ O MVC organiza a camada de apresentação, distribuída entre dois containers do
 | Papel | Onde vive | O que faz |
 |---|---|---|
 | **Model** | `backend/src/models/` | Entidades de domínio (`Usuario`, `Cliente`, `Veiculo`, `Servico`, `Atendimento`) e suas regras estruturais |
-| **View** | Container `Interface Web` (React) | Telas de login, recepção e painel da fila. Não contém regra de negócio: consome a API através de `services/api.js` |
+| **View** | Container `Interface Web` (Vue.js) | Telas de login, recepção e painel da fila. Não contém regra de negócio: consome a API através de `services/api.js` |
 | **Controller** | `backend/src/controllers/` | Recebe a requisição HTTP, aciona o serviço adequado e devolve a resposta. Não contém regra de negócio |
 
 **Por que os dois juntos:** os padrões atuam em escalas diferentes e não competem. O Layered responde *"como o sistema inteiro é dividido"*; o MVC responde *"como a entrada e a saída do usuário são organizadas dentro da camada de apresentação"*. O MVC clássico não prevê uma camada de negócio nem uma camada de persistência explícitas — é o Layered que as introduz, mantendo os controllers finos.
@@ -199,7 +199,7 @@ O MVC organiza a camada de apresentação, distribuída entre dois containers do
 
 | Camada | Pasta | Regra |
 |---|---|---|
-| Apresentação (View) | `frontend/src/pages/` | Nunca chama a API diretamente — usa `frontend/src/services/` |
+| Apresentação (View) | `frontend/src/views/` | Nunca chama a API diretamente — usa `frontend/src/services/` |
 | Rotas | `backend/src/routes/` | Mapeia URL para controller e declara a validação de entrada |
 | Apresentação (Controller) | `backend/src/controllers/` | Nenhuma regra de negócio |
 | Negócio | `backend/src/services/` | Todas as regras. Não conhece HTTP |
@@ -232,9 +232,9 @@ As escolhas abaixo foram feitas para atender os requisitos não funcionais prior
 
 | Ferramenta | Papel no projeto | Por que foi escolhida |
 |---|---|---|
-| **React** | Biblioteca de interface | Interface baseada em estado, adequada a um painel que muda o tempo todo conforme os veículos avançam na fila. Componentização permite reaproveitar a estrutura das telas |
+| **Vue.js 3** | Framework de interface | Interface reativa, adequada a um painel que muda o tempo todo conforme os veículos avançam na fila: a tela reage ao estado sem manipulação manual do DOM. Os componentes de arquivo único (`.vue`) mantêm template, lógica e estilo de cada tela no mesmo lugar, o que reduz o custo de manutenção para uma equipe pequena |
 | **Vite** | Build e servidor de desenvolvimento | Inicialização quase instantânea e recarregamento imediato, encurtando o ciclo de desenvolvimento |
-| **React Router** | Navegação | Navegação entre a tela de recepção e o painel da fila sem recarregar a página, mantendo a resposta percebida dentro do que o RNF05 exige |
+| **Vue Router** | Navegação e proteção de telas | Navegação entre recepção e painel da fila sem recarregar a página, mantendo a resposta percebida dentro do que o RNF05 exige. O *navigation guard* global impede que telas de operação sejam alcançadas sem sessão, reforçando o RNF04 no lado do cliente. O carregamento sob demanda das telas reduz o pacote inicial |
 | **Fetch API** | Comunicação com o back-end | Nativa do navegador, sem dependência adicional. Encapsulada em `services/api.js`, que centraliza a URL da API e a injeção do token |
 
 ### 6.3. Apoio
@@ -345,9 +345,10 @@ WashFlow/
 │       ├── models/            Entidades de domínio
 │       ├── dtos/              Objetos de transferência
 │       └── middlewares/       Autenticação, validação e tratamento de erros
-└── frontend/                  Interface Web - React
+└── frontend/                  Interface Web - Vue.js
     └── src/
-        ├── pages/             Telas (View)
+        ├── views/             Telas (View)
+        ├── router/            Rotas e proteção de acesso
         └── services/          Comunicação com a API
 ```
 
