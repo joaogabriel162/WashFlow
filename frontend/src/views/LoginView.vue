@@ -113,7 +113,6 @@ async function submeter() {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   background: #f7f8fa;
-  background: oklch(0.98 0.004 240);
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
 }
 
@@ -128,12 +127,6 @@ async function submeter() {
   padding: 56px;
   min-height: 100vh;
   background: linear-gradient(160deg, #2c4a6e 0%, #1f3752 55%, #172a3d 100%);
-  background: linear-gradient(
-    160deg,
-    oklch(0.32 0.11 240) 0%,
-    oklch(0.24 0.09 245) 55%,
-    oklch(0.18 0.07 250) 100%
-  );
 }
 
 .hero-decoracoes {
@@ -272,7 +265,6 @@ async function submeter() {
   justify-content: center;
   padding: 40px;
   background: #f7f8fa;
-  background: oklch(0.98 0.004 240);
 }
 
 .login-form {
@@ -289,7 +281,6 @@ async function submeter() {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #3d7bb0;
-  color: oklch(0.55 0.1 235);
   margin: 0 0 8px;
 }
 
@@ -298,7 +289,6 @@ async function submeter() {
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #212936;
-  color: oklch(0.22 0.02 250);
   margin: 0 0 12px;
 }
 
@@ -321,20 +311,17 @@ async function submeter() {
   font-size: 13px;
   font-weight: 600;
   color: #5b6878;
-  color: oklch(0.4 0.02 250);
 }
 
 .campo-login input {
   height: 50px;
   border-radius: 12px;
   border: 1.5px solid #e2e5ea;
-  border: 1.5px solid oklch(0.9 0.006 240);
   background: #fff;
   padding: 0 16px;
   font-size: 15px;
   font-family: inherit;
   color: #212936;
-  color: oklch(0.22 0.02 250);
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s;
   width: 100%;
@@ -343,7 +330,6 @@ async function submeter() {
 
 .campo-login input:focus {
   border-color: #3f83c4;
-  border-color: oklch(0.55 0.14 235);
   box-shadow: 0 0 0 4px rgba(63, 131, 196, 0.15);
 }
 
@@ -363,7 +349,6 @@ async function submeter() {
   border: none;
   background: transparent;
   color: #3f83c4;
-  color: oklch(0.5 0.13 235);
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -377,11 +362,6 @@ async function submeter() {
   border: none;
   border-radius: 12px;
   background: linear-gradient(135deg, #3f83c4, #2e5f92);
-  background: linear-gradient(
-    135deg,
-    oklch(0.5 0.15 235),
-    oklch(0.4 0.14 245)
-  );
   color: #fff;
   font-size: 15.5px;
   font-weight: 700;
@@ -407,9 +387,7 @@ async function submeter() {
   padding: 18px 20px;
   border-radius: 14px;
   background: #eef4fa;
-  background: oklch(0.95 0.015 235);
   border: 1px dashed #b9d3ea;
-  border: 1px dashed oklch(0.8 0.03 235);
 }
 
 .dica-titulo {
@@ -418,7 +396,6 @@ async function submeter() {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #4a7aa8;
-  color: oklch(0.45 0.08 235);
   margin: 0 0 10px;
 }
 
@@ -428,14 +405,12 @@ async function submeter() {
   align-items: center;
   font-size: 13.5px;
   color: #4b5563;
-  color: oklch(0.35 0.03 250);
   margin-top: 6px;
 }
 
 .dica-linha code {
   font-family: 'Courier New', monospace;
   color: #3f83c4;
-  color: oklch(0.5 0.1 235);
   font-weight: 600;
 }
 

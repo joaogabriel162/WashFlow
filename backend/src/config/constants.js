@@ -33,9 +33,6 @@ const STATUS_EM_ANDAMENTO = FLUXO_STATUS.filter(
 );
 
 const VALIDACAO = {
-  LOGIN_MIN: 3,
-  LOGIN_MAX: 20,
-  SENHA_MIN: 6,
   PLACA_REGEX: /^[A-Z]{3}[0-9][0-9A-Z][0-9]{2}$/,
   TELEFONE_REGEX: /^[0-9]{10,11}$/,
 };

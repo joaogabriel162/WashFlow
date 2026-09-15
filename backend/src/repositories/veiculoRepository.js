@@ -9,9 +9,6 @@ const listar = () =>
     order: [['placa', 'ASC']],
   });
 
-const buscarPorId = (id) =>
-  Veiculo.findByPk(id, { include: [{ model: Cliente, as: 'cliente' }] });
-
 const buscarPorPlaca = (placa) =>
   Veiculo.findOne({
     where: { placa },
@@ -20,4 +17,4 @@ const buscarPorPlaca = (placa) =>
 
 const criar = (dados) => Veiculo.create(dados);
 
-module.exports = { listar, buscarPorId, buscarPorPlaca, criar };
+module.exports = { listar, buscarPorPlaca, criar };

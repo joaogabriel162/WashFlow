@@ -7,8 +7,4 @@ const { Usuario } = require('../models');
 
 const buscarPorLogin = (login) => Usuario.findOne({ where: { login } });
 
-const buscarPorId = (id) => Usuario.findByPk(id);
-
-const criar = (dados) => Usuario.create(dados);
-
-module.exports = { buscarPorLogin, buscarPorId, criar };
+module.exports = { buscarPorLogin };
